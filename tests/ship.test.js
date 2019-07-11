@@ -2,11 +2,22 @@ const ship = require('../ship');
 
 const patrol = ship(2);
 
-test('ship', () => {
+test('Ship is not sunk', () => {
   expect(patrol.isSunk()).toBeFalsy();
 });
 
-test('ship', () => {
-  patrol.hit(5)
+test('Ship is sunk', () => {
+  patrol.hit(5);
+  patrol.hit(5);
+  expect(patrol.isSunk()).toBeTruthy();
+});
+
+test('Ship is damaged', () => {
+  patrol.hit(5);
   expect(patrol.damageReceived).toContain(5);
+});
+
+test('Miss', () => {
+  patrol.hit(5);
+  expect(patrol.damageReceived).not.toContain(88);
 });
