@@ -1,4 +1,4 @@
-const ship = require('../ship');
+const ship = require('../src/ship');
 
 const patrol = ship(2);
 
