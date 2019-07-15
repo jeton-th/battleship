@@ -15,6 +15,7 @@ myBoard.placeShip(destroyer);
 myBoard.placeShip(submarine);
 myBoard.placeShip(patrol);
 
+
 test('Game board has correctly placed ship & check for overlapping ships', () => {
   let count = 0;
   myBoard.board.forEach(row => {
@@ -23,3 +24,5 @@ test('Game board has correctly placed ship & check for overlapping ships', () =>
 
   expect(count).toBe(17);
 });
+
+

@@ -1,4 +1,5 @@
 const ship = (size) => {
+  const coordinates = [];
   const damageReceived = [];
   const hit = (n) => {
     damageReceived.push(n);
@@ -6,6 +7,7 @@ const ship = (size) => {
   const isSunk = () => (damageReceived.length === size);
 
   return {
+    coordinates,
     size,
     damageReceived,
     hit,
