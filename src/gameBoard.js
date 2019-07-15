@@ -15,11 +15,14 @@ const gameBoard = () => {
       let occupied = false;
       for (let k = i; k < end; k += 1) {
         if (direction === 'h') {
-          occupied = (board[k][j] === 1);
+          occupied = (board[j][k] === 1) ? true : occupied;
         } else {
-          occupied = (board[j][k] === 1);
+          occupied = (board[k][j] === 1) ? true : occupied;
         }
+        console.log(`i: ${i} - j: ${j} - direction: ${direction} - occup: ${occupied}`)
+        console.log(`k: ${k} - j: ${j} - direction: ${direction} - occup: ${occupied}`)
       }
+
 
       if (occupied) {
         direction = (randomNumber(1, 2) === 1) ? 'h' : 'v';
@@ -28,7 +31,6 @@ const gameBoard = () => {
         place();
       } else {
         for (i; i < end; i += 1) {
-          console.log(`i: ${i} - j: ${j} - direction: ${direction} - shi size: ${ship.size}`)
           if (direction === 'h') {
             board[j][i] = 1;
           } else {
