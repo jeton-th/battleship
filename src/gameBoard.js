@@ -1,12 +1,17 @@
-const gameBoard = (ships) => {
+const gameBoard = ships => {
   const board = Array.from(Array(10), () => Array(10).fill(0));
   const receiveAttack = (x, y) => {
     if (board[x][y] === 1) {
-      ships.forEach((ship) => {
-        console.log(ship.coordinates.includes([x, y]))
-        if (ship.coordinates.includes([x, y])) {
+      ships.forEach(ship => {
+        itemTrue = [x, y];
+        if (
+          ship.coordinates.some(
+            r =>
+              r.length == itemTrue.length &&
+              r.every((value, index) => itemTrue[index] == value)
+          )
+        ) {
           ship.hit([x, y]);
-          console.log('here')
         }
       });
     } else {
@@ -15,7 +20,7 @@ const gameBoard = (ships) => {
     }
   };
 
-  const placeShip = (ship) => {
+  const placeShip = ship => {
     const randomNumber = (min, max) => Math.floor(Math.random() * max + min);
 
     let direction = randomNumber(1, 2) === 1 ? 'h' : 'v';
@@ -23,7 +28,8 @@ const gameBoard = (ships) => {
     let y = randomNumber(0, 9);
 
     function place() {
-      let i; let j;
+      let i;
+      let j;
       if (direction === 'h') {
         i = x;
         j = y;
@@ -69,7 +75,7 @@ const gameBoard = (ships) => {
     board,
     ships,
     placeShip,
-    receiveAttack,
+    receiveAttack
   };
 };
 
