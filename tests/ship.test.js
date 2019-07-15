@@ -15,4 +15,3 @@ test('Ship is sunk', () => {
   patrol.hit([1, 1]);
   expect(patrol.isSunk()).toBeTruthy();
 });
-

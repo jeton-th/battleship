@@ -1,15 +1,21 @@
-const gameBoard = () => {
+const gameBoard = (ships) => {
   const board = Array.from(Array(10), () => Array(10).fill(0));
   const receiveAttack = (x, y) => {
     if (board[x][y] === 1) {
-     ship.hit([x, y])
-    } else{
-      //store the missing shots to the board
-      board[x][y] = -1
+      ships.forEach((ship) => {
+        console.log(ship.coordinates.includes([x, y]))
+        if (ship.coordinates.includes([x, y])) {
+          ship.hit([x, y]);
+          console.log('here')
+        }
+      });
+    } else {
+      // store the missing shots to the board
+      board[x][y] = -1;
     }
-  }
+  };
 
-  const placeShip = ship => {
+  const placeShip = (ship) => {
     const randomNumber = (min, max) => Math.floor(Math.random() * max + min);
 
     let direction = randomNumber(1, 2) === 1 ? 'h' : 'v';
@@ -17,7 +23,7 @@ const gameBoard = () => {
     let y = randomNumber(0, 9);
 
     function place() {
-      let i, j;
+      let i; let j;
       if (direction === 'h') {
         i = x;
         j = y;
@@ -47,10 +53,10 @@ const gameBoard = () => {
         for (i; i < end; i += 1) {
           if (direction === 'h') {
             board[j][i] = 1;
-            ship.coordinates.push([j][i])
+            ship.coordinates.push([j, i]);
           } else {
             board[i][j] = 1;
-            ship.coordinates.push([i][j])
+            ship.coordinates.push([i, j]);
           }
         }
       }
@@ -60,9 +66,10 @@ const gameBoard = () => {
   };
 
   return {
-    receiveAttack, 
     board,
-    placeShip
+    ships,
+    placeShip,
+    receiveAttack,
   };
 };
 
