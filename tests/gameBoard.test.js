@@ -29,3 +29,8 @@ test('Attack is received', () => {
   myBoard.receiveAttack(start[0], start[1]);
   expect(destroyer.damageReceived).toContainEqual(start);
 });
+
+test('All ship are not sunk', () => {
+  myBoard.isAllSunk()
+  expect(myBoard.isAllSunk()).toBeFalsy();
+});

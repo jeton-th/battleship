@@ -20,6 +20,11 @@ const gameBoard = ships => {
     }
   };
 
+  const isAllSunk = () => {
+    const check = ships.map(ship => ship.isSunk());
+    return check.every(a => a === true);
+  };
+
   const placeShip = ship => {
     const randomNumber = (min, max) => Math.floor(Math.random() * max + min);
 
@@ -72,6 +77,7 @@ const gameBoard = ships => {
   };
 
   return {
+    isAllSunk,
     board,
     ships,
     placeShip,
