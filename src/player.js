@@ -1,12 +1,3 @@
-const player = (name) => {
-  const play = () => {
-
-  }
-
-  return {
-    name,
-    play
-  };
-};
+const player = name => name;
 
 module.exports = player;

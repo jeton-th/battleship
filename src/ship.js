@@ -4,9 +4,8 @@ const ship = (size) => {
   const hit = (n) => {
     damageReceived.push(n);
   };
-  const isSunk = () => {
-    return (damageReceived.length === size)
-  };
+
+  const isSunk = () => (damageReceived.length === size);
 
   return {
     size,

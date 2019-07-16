@@ -12,7 +12,6 @@ const gameBoard = (ships) => {
             && r.every((value, index) => itemTrue[index] === value),
         )
         ) {
-          console.log(ship)
           board[x][y] = 2;
           ship.hit([x, y]);
         }

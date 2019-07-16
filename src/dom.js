@@ -1,3 +1,5 @@
+/* eslint no-param-reassign: "error" */
+
 function createBoard(board, parentDiv) {
   const domBoard = document.querySelector(`.${parentDiv}`);
   board.forEach((row, i) => {
