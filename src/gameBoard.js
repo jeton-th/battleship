@@ -14,9 +14,11 @@ const gameBoard = (ships) => {
           ship.hit([x, y]);
         }
       });
+      return 'hit'
     } else {
       // store the missing shots to the board
       board[x][y] = -1;
+      return 'miss'
     }
   };
 

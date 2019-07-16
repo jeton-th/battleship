@@ -1,9 +1,10 @@
-const player = () => {
+const player = (name) => {
   const play = () => {
 
   }
 
   return {
+    name,
     play
   };
 };
