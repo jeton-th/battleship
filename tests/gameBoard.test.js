@@ -31,6 +31,6 @@ test('Attack is received', () => {
 });
 
 test('All ship are not sunk', () => {
-  myBoard.isAllSunk()
+  myBoard.isAllSunk();
   expect(myBoard.isAllSunk()).toBeFalsy();
 });

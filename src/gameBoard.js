@@ -2,27 +2,26 @@ const utils = require('./utils');
 
 const gameBoard = (ships) => {
   const board = Array.from(Array(10), () => Array(10).fill(0));
+
   const receiveAttack = (x, y) => {
     if (board[x][y] === 1) {
       ships.forEach((ship) => {
-        itemTrue = [x, y];
-        if (
-          ship.coordinates.some(
-            r =>
-              r.length === itemTrue.length &&
-              r.every((value, index) => itemTrue[index] === value)
-          )
+        const itemTrue = [x, y];
+        if (ship.coordinates.some(
+          r => r.length === itemTrue.length
+            && r.every((value, index) => itemTrue[index] === value),
+        )
         ) {
+          console.log(ship)
           board[x][y] = 2;
           ship.hit([x, y]);
         }
       });
-      return 'hit'
-    } else {
-      // store the missing shots to the board
-      board[x][y] = -1;
-      return 'miss'
+      return 'hit';
     }
+
+    board[x][y] = -1;
+    return 'miss';
   };
 
   const isAllSunk = () => {
@@ -84,7 +83,7 @@ const gameBoard = (ships) => {
     board,
     ships,
     placeShip,
-    receiveAttack
+    receiveAttack,
   };
 };
 
