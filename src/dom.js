@@ -1,4 +1,4 @@
-function createBoard(boardInstance, parentDiv) {
+function createBoard(boardInstance, parentDiv,turn) {
   const domBoard = document.querySelector(parentDiv);
   boardInstance.board.forEach((row, i) => {
     row.forEach((box, j) => {
@@ -13,6 +13,7 @@ function createBoard(boardInstance, parentDiv) {
       //pass the id
 
       button.addEventListener('click', () => {
+        turn = 'computer'
         button.disabled = true;
         const res = boardInstance.receiveAttack(i, j);
         changeButton(button, res);
