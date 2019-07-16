@@ -1,6 +1,6 @@
-function createBoard(boardInstance, parentDiv,turn) {
+function createBoard(board, parentDiv) {
   const domBoard = document.querySelector(parentDiv);
-  boardInstance.board.forEach((row, i) => {
+  board.forEach((row, i) => {
     row.forEach((box, j) => {
       const button = document.createElement('button');
       button.id = `${i}-${j}`;
@@ -10,21 +10,15 @@ function createBoard(boardInstance, parentDiv,turn) {
         button.innerHTML = 0;
       }
 
-      //pass the id
-
-      button.addEventListener('click', () => {
-        turn = 'computer'
-        button.disabled = true;
-        const res = boardInstance.receiveAttack(i, j);
-        changeButton(button, res);
-      });
-
       domBoard.appendChild(button);
     });
   });
+
+  return domBoard;
 }
 
 function changeButton(button, res) {
+  button.disabled = true;
   if (res === 'hit') {
     button.innerHTML = 1;
     button.style.background = 'red';
@@ -34,4 +28,4 @@ function changeButton(button, res) {
   }
 }
 
-export { createBoard };
+export { createBoard, changeButton };

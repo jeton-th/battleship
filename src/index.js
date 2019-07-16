@@ -1,13 +1,13 @@
 import ship from './ship';
 import gameBoard from './gameBoard';
 import player from './player';
-import { createBoard } from './dom';
+import { createBoard, changeButton } from './dom';
+import randomNumber from './utils';
 
 const human = player('human');
 const ai = player('computer');
 
 let turn = human.name;
-
 let gameOver = false;
 
 const carrier = ship(5);
@@ -24,9 +24,9 @@ myBoard.placeShip(destroyer);
 myBoard.placeShip(submarine);
 myBoard.placeShip(patrol);
 
-createBoard(myBoard, '.my-board', turn);
+createBoard(myBoard.board, '.my-board');
 
-//Enemy Board
+// Enemy Board
 
 const carrier2 = ship(5);
 const battleship2 = ship(4);
@@ -48,14 +48,37 @@ enemyBoard.placeShip(destroyer2);
 enemyBoard.placeShip(submarine2);
 enemyBoard.placeShip(patrol2);
 
-createBoard(enemyBoard, '.enemy-board', turn);
+function botPlay() {
+  const empty = []
+  myBoard.board.forEach((row, x) => {
+    row.forEach((box, y) => {
+      if (box === 0) empty.push([x, y]);
+    })
+  })
 
-while (!gameOver) {
-  if (enemyBoard.isAllSunk() || myBoard.isAllSunk()) {
-    gameBoard = true;
-    console.log('Game Over');
+  const box = randomNumber(0, empty.length - 1)
+  myBoard.receiveAttack(box[0], box[1])
+}
+
+function gamePlay(result) {
+  if (myBoard.isAllSunk() || enemyBoard.isAllSunk()) {
+    console.log(`${human.name} wins.`);
+  } else if (result === 'hit') {
+    turn = human.name;
+    console.log('play again')
   } else {
-    //    turn === 'ai' ?  turn = 'human' :  turn = 'ai'
-    turn = turn === 'ai' ? 'human' : 'ai';
+    botPlay();
+    turn = human.name;
   }
 }
+
+const domBoard = createBoard(enemyBoard.board, '.enemy-board');
+domBoard.childNodes.forEach((button) => {
+  button.addEventListener('click', () => {
+    const coords = button.id.split('-');
+    const res = enemyBoard.receiveAttack(coords[0], coords[1]);
+    turn = 'computer';
+    changeButton(button, res);
+    gamePlay(res);
+  });
+});

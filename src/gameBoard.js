@@ -1,3 +1,5 @@
+import randomNumber from './utils';
+
 const gameBoard = (ships) => {
   const board = Array.from(Array(10), () => Array(10).fill(0));
   const receiveAttack = (x, y) => {
@@ -28,7 +30,7 @@ const gameBoard = (ships) => {
   };
 
   const placeShip = (ship) => {
-    const randomNumber = (min, max) => Math.floor(Math.random() * max + min);
+
 
     let direction = randomNumber(1, 2) === 1 ? 'h' : 'v';
     let x = randomNumber(0, 9);
