@@ -20,7 +20,7 @@ function createBoard(board, parentDiv) {
 function changeButton(button, res) {
   button.disabled = true;
   if (res === 'hit') {
-    button.innerHTML = 1;
+    button.innerHTML = 2;
     button.style.background = 'red';
   } else {
     button.innerHTML = -1;

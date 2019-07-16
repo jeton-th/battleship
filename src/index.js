@@ -2,7 +2,8 @@ import ship from './ship';
 import gameBoard from './gameBoard';
 import player from './player';
 import { createBoard, changeButton } from './dom';
-import randomNumber from './utils';
+
+const utils = require('./utils');
 
 const human = player('human');
 const ai = player('computer');
@@ -49,15 +50,15 @@ enemyBoard.placeShip(submarine2);
 enemyBoard.placeShip(patrol2);
 
 function botPlay() {
-  const empty = []
+  const empty = [];
   myBoard.board.forEach((row, x) => {
     row.forEach((box, y) => {
-      if (box === 0) empty.push([x, y]);
-    })
-  })
+      if (box === 0 || box === 1) empty.push([x, y]);
+    });
+  });
 
-  const box = randomNumber(0, empty.length - 1)
-  myBoard.receiveAttack(box[0], box[1])
+  const index = utils.randomNumber(0, empty.length - 1)
+  const result = myBoard.receiveAttack(empty[index][0], empty[index][1])
 }
 
 function gamePlay(result) {
