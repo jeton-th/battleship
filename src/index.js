@@ -25,7 +25,7 @@ myBoard.placeShip(destroyer);
 myBoard.placeShip(submarine);
 myBoard.placeShip(patrol);
 
-createBoard(myBoard.board, '.my-board');
+createBoard(myBoard.board, 'my-board');
 
 // Enemy Board
 
@@ -56,28 +56,35 @@ function botPlay() {
       if (box === 0 || box === 1) empty.push([x, y]);
     });
   });
+  const index = utils.randomNumber(0, empty.length - 1);
 
-  const index = utils.randomNumber(0, empty.length - 1)
-  const result = myBoard.receiveAttack(empty[index][0], empty[index][1])
+  const x = empty[index][0];
+  const y = empty[index][1];
+  const button = document.getElementById(`my-board-${x}-${y}`);
+
+  const res = myBoard.receiveAttack(x, y);
+
+  changeButton(button, res);
+  gamePlay(res)
 }
 
-function gamePlay(result) {
+function gamePlay(res) {
   if (myBoard.isAllSunk() || enemyBoard.isAllSunk()) {
-    console.log(`${human.name} wins.`);
-  } else if (result === 'hit') {
+    console.log(`Someone wins.`);
+  } else if (res === 'hit') {
     turn = human.name;
-    console.log('play again')
+    console.log('play again');
   } else {
     botPlay();
-    turn = human.name;
+    turn = res === 'hit' ? 'ai' : human.name;
   }
 }
 
-const domBoard = createBoard(enemyBoard.board, '.enemy-board');
-domBoard.childNodes.forEach((button) => {
+const domBoard = createBoard(enemyBoard.board, 'enemy-board');
+domBoard.childNodes.forEach(button => {
   button.addEventListener('click', () => {
     const coords = button.id.split('-');
-    const res = enemyBoard.receiveAttack(coords[0], coords[1]);
+    const res = enemyBoard.receiveAttack(coords[2], coords[3]);
     turn = 'computer';
     changeButton(button, res);
     gamePlay(res);
