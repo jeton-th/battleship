@@ -7,7 +7,8 @@
     "test": "jest",
     "watch": "jest --watch *.js",
     "build": "webpack",
-    "development": "webpack --watch"
+    "development": "webpack --watch",
+    "start:dev": "webpack-dev-server"
   },
   "repository": {
     "type": "git",
@@ -21,11 +22,13 @@
   },
   "homepage": "https://github.com/jeton-th/battleship#readme",
   "devDependencies": {
+    "@babel/preset-env": "^7.5.4",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.2.0",
     "eslint-plugin-import": "^2.18.0",
     "jest": "^24.8.0",
     "webpack": "^4.35.3",
-    "webpack-cli": "^3.3.6"
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-server": "^3.7.2"
   }
 }

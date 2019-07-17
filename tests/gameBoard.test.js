@@ -1,5 +1,5 @@
-const gameBoard = require('../src/gameBoard');
-const ship = require('../src/ship');
+import ship from '../src/ship';
+import gameBoard from '../src/gameBoard';
 
 const carrier = ship(5);
 const battleship = ship(4);

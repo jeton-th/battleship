@@ -1,4 +1,4 @@
-const ship = require('../src/ship');
+import ship from '../src/ship';
 
 const patrol = ship(2);
 

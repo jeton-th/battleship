@@ -1,4 +1,4 @@
-import randomNumber from './utils'
+import randomNumber from './utils';
 
 const gameBoard = (ships) => {
   const board = Array.from(Array(10), () => Array(10).fill(0));
