@@ -77,12 +77,14 @@ function gamePlay(res) {
 
 const domBoard = createBoard(enemyBoard.board, 'enemy-board');
 domBoard.childNodes.forEach((button) => {
-  button.addEventListener('click', () => {
-    const coords = button.id.split('-');
-    const x = parseInt(coords[2], 10);
-    const y = parseInt(coords[3], 10);
-    const res = enemyBoard.receiveAttack(x, y);
-    changeButton(button, res);
-    gamePlay(res);
-  });
+  if (button.nodeName === 'BUTTON') {
+    button.addEventListener('click', () => {
+      const coords = button.id.split('-');
+      const x = parseInt(coords[2], 10);
+      const y = parseInt(coords[3], 10);
+      const res = enemyBoard.receiveAttack(x, y);
+      changeButton(button, res);
+      gamePlay(res);
+    });
+  }
 });

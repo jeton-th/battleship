@@ -20,8 +20,8 @@ body {
 
 .board {
   display: grid;
-  grid-template-columns: repeat(10, auto);
-  grid-template-rows: repeat(10, auto);
+  grid-template-columns: repeat(11, auto);
+  grid-template-rows: repeat(11, auto);
 }
 
 .box {
