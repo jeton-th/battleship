@@ -47,7 +47,7 @@ function changeButton(button, res) {
 }
 
 function clearBoard() {
-  document.querySelectorAll('button.box').forEach(e => {
+  document.querySelectorAll('button.box').forEach((e) => {
     e.style.background = 'white';
     e.disabled = false;
   });
