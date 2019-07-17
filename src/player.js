@@ -1,3 +1,3 @@
 const player = name => name;
 
-module.exports = player;
+export default player

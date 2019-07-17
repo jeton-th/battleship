@@ -16,4 +16,4 @@ const ship = (size) => {
   };
 };
 
-module.exports = ship;
+export default ship

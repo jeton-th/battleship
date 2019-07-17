@@ -2,8 +2,7 @@ import ship from './ship';
 import gameBoard from './gameBoard';
 import player from './player';
 import { createBoard, changeButton } from './dom';
-
-const utils = require('./utils');
+import randomNumber from './utils';
 
 const human = player('human');
 let turn = human;
@@ -24,8 +23,6 @@ myBoard.placeShip(patrol);
 
 createBoard(myBoard.board, 'my-board');
 
-// Enemy Board
-
 const carrier2 = ship(5);
 const battleship2 = ship(4);
 const destroyer2 = ship(3);
@@ -37,7 +34,7 @@ const enemyBoard = gameBoard([
   battleship2,
   destroyer2,
   submarine2,
-  patrol2,
+  patrol2
 ]);
 
 enemyBoard.placeShip(carrier2);
@@ -54,7 +51,7 @@ function botPlay() {
     });
   });
 
-  const index = utils.randomNumber(0, empty.length - 1);
+  const index = randomNumber(0, empty.length - 1);
   const x = empty[index][0];
   const y = empty[index][1];
   const button = document.getElementById(`my-board-${x}-${y}`);
@@ -78,7 +75,7 @@ function gamePlay(res) {
 }
 
 const domBoard = createBoard(enemyBoard.board, 'enemy-board');
-domBoard.childNodes.forEach((button) => {
+domBoard.childNodes.forEach(button => {
   button.addEventListener('click', () => {
     const coords = button.id.split('-');
     const x = parseInt(coords[2], 10);

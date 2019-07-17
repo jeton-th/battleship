@@ -1,4 +1,4 @@
-const utils = require('./utils');
+import randomNumber from './utils'
 
 const gameBoard = (ships) => {
   const board = Array.from(Array(10), () => Array(10).fill(0));
@@ -29,9 +29,9 @@ const gameBoard = (ships) => {
   };
 
   const placeShip = (ship) => {
-    let direction = utils.randomNumber(1, 2) === 1 ? 'h' : 'v';
-    let x = utils.randomNumber(0, 9);
-    let y = utils.randomNumber(0, 9);
+    let direction = randomNumber(1, 2) === 1 ? 'h' : 'v';
+    let x = randomNumber(0, 9);
+    let y = randomNumber(0, 9);
 
     function place() {
       let i;
@@ -57,9 +57,9 @@ const gameBoard = (ships) => {
       }
 
       if (occupied) {
-        direction = utils.randomNumber(1, 2) === 1 ? 'h' : 'v';
-        x = utils.randomNumber(0, 9 - ship.size);
-        y = utils.randomNumber(0, 9 - ship.size);
+        direction = randomNumber(1, 2) === 1 ? 'h' : 'v';
+        x = randomNumber(0, 9 - ship.size);
+        y = randomNumber(0, 9 - ship.size);
         place();
       } else {
         for (i; i < end; i += 1) {
@@ -86,4 +86,4 @@ const gameBoard = (ships) => {
   };
 };
 
-module.exports = gameBoard;
+export default gameBoard
