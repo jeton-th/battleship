@@ -4,6 +4,8 @@
 
 body {
   font-family: sans-serif;
+  background-image: url('https://store-images.s-microsoft.com/image/apps.49131.68190763503362257.7b91f0f7-106b-4f3c-ad9e-a0f35fc5836b.51945ab3-cfdd-4cf1-9f80-4e9cbbcc06a0?mode=scale&q=90&h=1080&w=1920');
+  color: #fff;
 }
 
 .container {
@@ -34,8 +36,21 @@ body {
   border: 1px solid lightblue;
 }
 
-@media screen and (max-width: 680px){
+.col h2 {
+  background-color: #e2224c;
+}
 
+span {
+  line-height: 30px;
+  background-color:#e2224c;
+  vertical-align: middle;
+}
+
+.winner{
+  background-color: #e2224c;
+}
+
+@media screen and (max-width: 680px) {
   .container {
     max-width: 400px;
   }

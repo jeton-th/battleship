@@ -40,9 +40,9 @@ function createBoard(board, parentDiv) {
 function changeButton(button, res) {
   button.disabled = true;
   if (res === 'hit') {
-    button.style.background = 'crimson';
+    button.style.background = '#e2224c';
   } else {
-    button.style.background = 'lightblue';
+    button.style.background = '#1ca3ec';
   }
 }
 
