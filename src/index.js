@@ -34,7 +34,7 @@ const enemyBoard = gameBoard([
   battleship2,
   destroyer2,
   submarine2,
-  patrol2
+  patrol2,
 ]);
 
 enemyBoard.placeShip(carrier2);
@@ -75,7 +75,7 @@ function gamePlay(res) {
 }
 
 const domBoard = createBoard(enemyBoard.board, 'enemy-board');
-domBoard.childNodes.forEach(button => {
+domBoard.childNodes.forEach((button) => {
   button.addEventListener('click', () => {
     const coords = button.id.split('-');
     const x = parseInt(coords[2], 10);

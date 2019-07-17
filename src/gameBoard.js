@@ -86,4 +86,4 @@ const gameBoard = (ships) => {
   };
 };
 
-export default gameBoard
+export default gameBoard;
