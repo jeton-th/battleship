@@ -50,7 +50,17 @@ span {
   background-color: #e2224c;
 }
 
-@media screen and (max-width: 680px) {
+.reset{
+  height: 20px;
+  margin: 20px 20px;
+}
+
+.material-icons{
+  font-size: 50px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 770px) {
   .container {
     max-width: 400px;
   }
@@ -62,5 +72,18 @@ span {
   .box {
     min-width: 20px;
     min-height: 20px;
+  }
+
+  .col:first-child{
+    order: 1;
+  }
+
+  .col:last-child{
+    order: 2;
+  }
+
+  .reset{
+    order: 0;
+    min-width: 20px;
   }
 }

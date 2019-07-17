@@ -46,4 +46,11 @@ function changeButton(button, res) {
   }
 }
 
-export { createBoard, changeButton };
+function clearBoard() {
+  document.querySelectorAll('button.box').forEach(e => {
+    e.style.background = 'white';
+    e.disabled = false;
+  });
+}
+
+export { createBoard, changeButton, clearBoard };
