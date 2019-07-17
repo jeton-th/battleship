@@ -24,11 +24,14 @@ body {
   grid-template-rows: repeat(10, auto);
 }
 
-.board button {
+.box {
   min-width: 30px;
   min-height: 30px;
+}
+
+.board button {
   background: white;
-  border: 1px solid tomato;
+  border: 1px solid lightblue;
 }
 
 @media screen and (max-width: 680px){
@@ -41,7 +44,7 @@ body {
     flex-direction: column;
   }
 
-  .board button {
+  .box {
     min-width: 20px;
     min-height: 20px;
   }
