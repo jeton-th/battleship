@@ -4,7 +4,8 @@ import player from './player';
 import { createBoard, changeButton } from './dom';
 import randomNumber from './utils';
 
-const human = player('human');
+const human = player('Human');
+const ai = player('Computer');
 let turn = human;
 
 const carrier = ship(5);
@@ -65,11 +66,11 @@ function gamePlay(res) {
   if (myBoard.isAllSunk() || enemyBoard.isAllSunk()) {
     document.querySelector('.winner').innerHTML = `${turn} wins.`;
   } else if (turn === human && res === 'miss') {
-    turn = 'ai';
+    turn = ai;
     botPlay();
-  } else if (turn === 'ai' && res === 'hit') {
+  } else if (turn === ai && res === 'hit') {
     botPlay();
-  } else if (turn === 'ai' && res === 'miss') {
+  } else if (turn === ai && res === 'miss') {
     turn = human;
   }
 }

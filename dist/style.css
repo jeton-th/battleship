@@ -1,5 +1,48 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+.container {
+  padding: 15px;
+  margin: 0 auto;
+  max-width: 800px;
+  text-align: center;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
 .board {
   display: grid;
   grid-template-columns: repeat(10, auto);
   grid-template-rows: repeat(10, auto);
+}
+
+.board button {
+  min-width: 30px;
+  min-height: 30px;
+  background: white;
+  border: 1px solid tomato;
+}
+
+@media screen and (max-width: 680px){
+
+  .container {
+    max-width: 400px;
+  }
+
+  .row {
+    flex-direction: column;
+  }
+
+  .board button {
+    min-width: 20px;
+    min-height: 20px;
+  }
 }
