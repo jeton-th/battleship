@@ -1,0 +1,89 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  background-image: url('https://store-images.s-microsoft.com/image/apps.49131.68190763503362257.7b91f0f7-106b-4f3c-ad9e-a0f35fc5836b.51945ab3-cfdd-4cf1-9f80-4e9cbbcc06a0?mode=scale&q=90&h=1080&w=1920');
+  color: #fff;
+}
+
+.container {
+  padding: 15px;
+  margin: 0 auto;
+  max-width: 800px;
+  text-align: center;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(11, auto);
+  grid-template-rows: repeat(11, auto);
+}
+
+.box {
+  min-width: 30px;
+  min-height: 30px;
+}
+
+.board button {
+  background: white;
+  border: 1px solid lightblue;
+}
+
+.col h2 {
+  background-color: #e2224c;
+}
+
+span {
+  line-height: 30px;
+  background-color:#e2224c;
+  vertical-align: middle;
+}
+
+.winner{
+  background-color: #e2224c;
+}
+
+.reset{
+  height: 20px;
+  margin: 20px 20px;
+}
+
+.material-icons{
+  font-size: 50px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 770px) {
+  .container {
+    max-width: 400px;
+  }
+
+  .row {
+    flex-direction: column;
+  }
+
+  .box {
+    min-width: 20px;
+    min-height: 20px;
+  }
+
+  .col:first-child{
+    order: 1;
+  }
+
+  .col:last-child{
+    order: 2;
+  }
+
+  .reset{
+    order: 0;
+    min-width: 20px;
+  }
+}
