@@ -30,8 +30,7 @@ local machine for development and testing purposes.
 ### Prerequisites  
 
 This project runs with Node.js and NPM. If you don't have those installed, follow this
-[guide](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).  
-Then if you haven't already, clone the [repository](https://github.com/jeton-th/battleship).
+[guide](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
 
 ### Installing  
 
