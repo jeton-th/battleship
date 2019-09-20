@@ -6,7 +6,7 @@ This is the famous Battleship game, built in JavaScript.
 You can check out the [live demo](https://jeton-th.github.io/battleship/).
 
 ## Game description
-The game is played by two players, one of them being the computer. Both players have a board with 10 rows and 10 columns. 5 ships with different length are randomly placed in each board. The game is played by hitting the opposite ships in order to sink them.
+The game is played by two players, one of them being the computer. Both players have a board with 10 rows and 10 columns. 5 ships with different lengths are randomly placed in each board. The game is played by hitting the opposite ships in order to sink them.
 
 Ships & their size :
 * Carrier   ~   5
@@ -16,7 +16,7 @@ Ships & their size :
 * Destroyer	   ~ 3
 
 ### Game rules
-* Each player clicks a field in the board in order to attack and oposite ship.
+* Each player clicks a field on the board in order to attack and opposite ship.
 * If the attack is a miss the turn is changed to the other player.
 * If the attack is a hit, the same player can attack consecutively.
 * If all the fields of the ship are hit the ship is sunk.
